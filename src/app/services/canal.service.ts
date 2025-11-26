@@ -15,7 +15,6 @@ export class CanalService {
 
     private loadInitialData() {
         const mockCanals: Canal[] = [
-
             {
                 id: '1',
                 code: 'CAN-TANA-001',
@@ -27,7 +26,7 @@ export class CanalService {
                 latitude: -18.916,
                 etat: 'bon',
                 dateDernierCurage: new Date('2023-05-01'),
-                responsable: 'Rasoa Rakoto'
+                responsable: 'SAMVA'
             },
             {
                 id: '2',
@@ -40,7 +39,7 @@ export class CanalService {
                 latitude: -18.905,
                 etat: 'moyen',
                 dateDernierCurage: new Date('2023-02-10'),
-                responsable: 'Andry Rajaona'
+                responsable: 'SMA'
             },
             {
                 id: '3',
@@ -53,15 +52,19 @@ export class CanalService {
                 latitude: -18.925,
                 etat: 'mauvais',
                 dateDernierCurage: new Date('2022-11-15'),
-                responsable: 'Lalao Ravelo'
+                responsable: 'Fokontany'
             }
         ];
-        
+
         this.canalsSubject.next(mockCanals);
     }
 
     getCanals(): Observable<Canal[]> {
         return this.canals$;
+    }
+
+    getCanalById(id: string): Canal | undefined {
+        return this.canalsSubject.value.find(c => c.id === id);
     }
 
     addCanal(canal: Canal): void {

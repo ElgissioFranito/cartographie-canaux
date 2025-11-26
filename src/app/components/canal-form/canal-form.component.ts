@@ -12,7 +12,7 @@ import { CanalService } from '../../services/canal.service';
     styleUrls: ['./canal-form.component.scss']
 })
 export class CanalFormComponent implements OnInit {
-    @Input() canalToEdit: Canal | null = null;
+    @Input() canalToEdit: Canal | Partial<Canal> | null = null;
     @Output() formSubmit = new EventEmitter<void>();
     @Output() cancel = new EventEmitter<void>();
 
@@ -38,10 +38,11 @@ export class CanalFormComponent implements OnInit {
         if (this.canalToEdit) {
             this.canalForm.patchValue({
                 ...this.canalToEdit,
-                dateDernierCurage: this.formatDate(this.canalToEdit.dateDernierCurage)
+                dateDernierCurage: this.canalToEdit.dateDernierCurage ? this.formatDate(this.canalToEdit.dateDernierCurage) : this.formatDate(new Date())
             });
-        } else {
-            // Generate a random ID for new entries
+        }
+
+        if (!this.canalForm.get('id')?.value) {
             this.canalForm.patchValue({
                 id: crypto.randomUUID()
             });
@@ -62,7 +63,7 @@ export class CanalFormComponent implements OnInit {
                 dateDernierCurage: new Date(formValue.dateDernierCurage)
             };
 
-            if (this.canalToEdit) {
+            if (this.canalToEdit?.id) {
                 this.canalService.updateCanal(canalData);
             } else {
                 this.canalService.addCanal(canalData);

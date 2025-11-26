@@ -1,6 +1,7 @@
 <div class="app-container">
     <header class="app-header">
         <h1>Gestion des Canaux</h1>
+        <p style="font-size: 12px; opacity: 0.5;">(clique droit sur la carte pour ajouter un canal)</p>
         <nav>
             <button (click)="setView('map')" [class.active]="viewMode === 'map' && !showForm">Carte</button>
             <button (click)="setView('list')" [class.active]="viewMode === 'list' && !showForm">Liste</button>
@@ -9,8 +10,9 @@
     </header>
 
     <main class="app-content">
-        <div *ngIf="!showForm" class="view-container">
-            <app-map *ngIf="viewMode === 'map'"></app-map>
+        <div class="view-container">
+            <app-map *ngIf="viewMode === 'map'" (editCanal)="openEditForm($event)" (deleteCanal)="onDeleteCanal($event)"
+                (createCanalAt)="onCreateCanalAt($event)"></app-map>
             <app-canal-list *ngIf="viewMode === 'list'" (edit)="openEditForm($event)"></app-canal-list>
         </div>
 
