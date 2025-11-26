@@ -1,6 +1,6 @@
 # Gestion des Canaux - Cartographie Interactive
 
-Application Angular de cartographie interactive pour la gestion et le suivi des canaux d'évacuation. Ce projet permet de visualiser, ajouter, modifier et supprimer des points d'intérêt (canaux) sur une carte dynamique Leaflet.
+Application Angular de cartographie interactive pour la gestion et le suivi des canaux d'eau. Ce projet permet de visualiser, ajouter, modifier et supprimer des points d'intérêt (canaux) sur une carte dynamique Leaflet.
 
 ![Vue Carte](public/screenshots/cartographie-canaux%20screenshot%20-%20map.png)
 
@@ -30,7 +30,7 @@ Application Angular de cartographie interactive pour la gestion et le suivi des 
 
 ## 🛠️ Stack Technique
 
-- **Framework** : Angular 19+
+- **Framework** : Angular 21
 - **Carte** : Leaflet
 - **Style** : SCSS
 - **Données** : Service Mock (In-Memory) pour la démonstration.
