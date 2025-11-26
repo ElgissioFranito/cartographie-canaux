@@ -1,0 +1,67 @@
+<div class="canal-form-container">
+    <h2>{{ canalToEdit ? 'Modifier' : 'Ajouter' }} un Canal</h2>
+    <form [formGroup]="canalForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="code">Code / Nom</label>
+            <input id="code" type="text" formControlName="code" class="form-control">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <input id="ville" type="text" formControlName="ville" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="arrondissement">Arrondissement</label>
+                <input id="arrondissement" type="text" formControlName="arrondissement" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="quartier">Quartier</label>
+                <input id="quartier" type="text" formControlName="quartier" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="secteur">Secteur</label>
+                <input id="secteur" type="text" formControlName="secteur" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="latitude">Latitude</label>
+                <input id="latitude" type="number" step="any" formControlName="latitude" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="longitude">Longitude</label>
+                <input id="longitude" type="number" step="any" formControlName="longitude" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="etat">Etat</label>
+            <select id="etat" formControlName="etat" class="form-control">
+                <option value="bon">Bon</option>
+                <option value="moyen">Moyen</option>
+                <option value="mauvais">Mauvais</option>
+                <option value="critique">Critique</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateDernierCurage">Date dernier curage</label>
+            <input id="dateDernierCurage" type="date" formControlName="dateDernierCurage" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable</label>
+            <input id="responsable" type="text" formControlName="responsable" class="form-control">
+        </div>
+
+        <div class="form-actions">
+            <button type="button" (click)="onCancel()" class="btn btn-secondary">Annuler</button>
+            <button type="submit" [disabled]="!canalForm.valid" class="btn btn-primary">Enregistrer</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="canal-list-container">
+    <h2>Liste des Canaux</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Ville</th>
+                <th>Etat</th>
+                <th>Dernier Curage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let canal of canals$ | async">
+                <td>{{ canal.code }}</td>
+                <td>{{ canal.ville }}</td>
+                <td>
+                    <span class="badge" [ngClass]="'badge-' + canal.etat">{{ canal.etat }}</span>
+                </td>
+                <td>{{ canal.dateDernierCurage | date:'dd/MM/yyyy' }}</td>
+                <td>
+                    <button (click)="onEdit(canal)" class="btn btn-sm btn-info">Editer</button>
+                    <button (click)="onDelete(canal.id)" class="btn btn-sm btn-danger">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<div class="app-container">
+    <header class="app-header">
+        <h1>Gestion des Canaux</h1>
+        <nav>
+            <button (click)="setView('map')" [class.active]="viewMode === 'map' && !showForm">Carte</button>
+            <button (click)="setView('list')" [class.active]="viewMode === 'list' && !showForm">Liste</button>
+            <button (click)="openAddForm()" class="btn-add">+ Ajouter Canal</button>
+        </nav>
+    </header>
+
+    <main class="app-content">
+        <div *ngIf="!showForm" class="view-container">
+            <app-map *ngIf="viewMode === 'map'"></app-map>
+            <app-canal-list *ngIf="viewMode === 'list'" (edit)="openEditForm($event)"></app-canal-list>
+        </div>
+
+        <div *ngIf="showForm" class="form-overlay">
+            <app-canal-form [canalToEdit]="selectedCanal" (formSubmit)="onFormSubmit()" (cancel)="closeForm()">
+            </app-canal-form>
+        </div>
+    </main>
+</div>
