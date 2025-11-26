@@ -1,59 +1,59 @@
-# CartographieCanaux
+# Gestion des Canaux - Cartographie Interactive
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+Application Angular de cartographie interactive pour la gestion et le suivi des canaux d'évacuation. Ce projet permet de visualiser, ajouter, modifier et supprimer des points d'intérêt (canaux) sur une carte dynamique Leaflet.
 
-## Development server
+![Vue Carte](public/screenshots/cartographie-canaux%20screenshot%20-%20map.png)
 
-To start a local development server, run:
+## 🚀 Fonctionnalités Clés
 
-```bash
-ng serve
-```
+### 🗺️ Cartographie Interactive
+- **Visualisation** : Affichage des canaux sur une carte OpenStreetMap.
+- **Marqueurs Personnalisés** : Utilisation d'icônes spécifiques pour identifier les canaux.
+- **Popups Détails** : Affichage des informations complètes (Code, État, Ville, Responsable, etc.) au clic sur un marqueur.
+- **Actions Rapides** : Boutons "Modifier" et "Supprimer" directement accessibles depuis les popups.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 📝 Gestion CRUD Complète
+- **Liste Tabulaire** : Vue alternative en liste pour une gestion administrative rapide.
+- **Ajout Intuitif** :
+  - Via le bouton "Ajouter Canal".
+  - **Clic Droit sur la Carte** : Ouvre le formulaire avec les coordonnées (Latitude/Longitude) pré-remplies à l'endroit cliqué.
+- **Édition & Suppression** : Modification des états (Bon, Moyen, Mauvais, Critique) et suppression avec confirmation.
 
-## Code scaffolding
+![Vue Liste](public/screenshots/cartographie-canaux%20screenshot%20-%20list%20canal.png)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🎨 Interface Utilisateur
+- **Design Responsive** : Interface claire et adaptée.
+- **Formulaires Réactifs** : Validation des données en temps réel.
+- **Feedback Visuel** : Codes couleurs pour les états des canaux (dans la liste).
 
-```bash
-ng generate component component-name
-```
+![Formulaire Ajout](public/screenshots/cartographie-canaux%20screenshot%20-%20add%20canal.png)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Stack Technique
 
-```bash
-ng generate --help
-```
+- **Framework** : Angular 19+
+- **Carte** : Leaflet
+- **Style** : SCSS
+- **Données** : Service Mock (In-Memory) pour la démonstration.
 
-## Building
+## 📦 Installation et Lancement
 
-To build the project run:
+1.  **Cloner le projet**
+    ```bash
+    git clone <votre-repo>
+    cd cartographie-canaux
+    ```
 
-```bash
-ng build
-```
+2.  **Installer les dépendances**
+    ```bash
+    npm install
+    ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+3.  **Lancer le serveur de développement**
+    ```bash
+    npm start
+    ```
+    Ouvrez votre navigateur sur `http://localhost:4200`.
 
-## Running unit tests
+## 👤 Auteur
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Projet réalisé par **Franito ELgissio Randriamanarina**.
